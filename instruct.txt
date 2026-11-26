@@ -1,0 +1,538 @@
+# PROJECT: BUDIPOINT – DIGITAL SERVICES AND FINTECH PLATFORM
+
+## 1. PROJECT OVERVIEW
+
+I want to build a modern, professional, scalable digital services platform called **Budipoint**.
+
+Budipoint will allow registered customers to access and purchase various digital products and services from one platform.
+
+The platform must have two distinct environments:
+
+1. Customer/User Dashboard.
+2. Administrator Dashboard.
+
+The application must be developed using a modular, API-first architecture. The backend will expose REST APIs, while the frontend will communicate with these APIs through a centralized API service layer.
+
+IMPORTANT: I will provide the actual third-party API credentials, documentation and endpoints later. Therefore, build the application in a way that makes future API integration straightforward. Do not invent live API integrations or pretend that transactions have been completed.
+
+For the initial development, use realistic mock data and clearly distinguish simulated operations from real transactions.
+
+---
+
+## 2. REQUIRED TECHNOLOGY STACK
+
+### Frontend
+- React.
+- TypeScript.
+- Vite.
+- Tailwind CSS.
+- Framer Motion for interface transitions and component animations.
+- GSAP for selected advanced animations and scroll-based effects.
+- React Router for navigation.
+- Axios for HTTP requests.
+- Lucide must NOT be used for icons. All icons must be created using inline SVG or reusable custom SVG components.
+
+### Backend
+- Laravel.
+- PHP.
+- RESTful API architecture.
+- Laravel Sanctum for API authentication.
+- Role-based access control for administrators and customers.
+- Form Request validation.
+- Laravel API Resources.
+- Service classes for business logic.
+
+### Database
+- PostgreSQL.
+
+### Typography
+- Mulish font throughout the application.
+
+### Development principles
+- Clean architecture.
+- Reusable components.
+- Separation of concerns.
+- Responsive design.
+- Secure authentication.
+- Maintainable code.
+- Scalable database structure.
+
+---
+
+## 3. BRAND IDENTITY AND DESIGN SYSTEM
+
+The design must look like a premium, modern fintech and digital services platform.
+
+Use the following brand colours consistently:
+
+Primary red: #FC5050
+Dark navy: #111D30
+Background: A clean off-white shade such as #F8F9FB.
+White: #FFFFFF.
+Body text: #111D30.
+Secondary text: A suitable muted grey.
+
+Design direction:
+
+- Clean and spacious layouts.
+- Modern typography.
+- Professional fintech dashboard appearance.
+- Rounded cards with controlled border radii.
+- Subtle shadows.
+- Thin borders.
+- Clear visual hierarchy.
+- Consistent spacing.
+- Attractive buttons and input fields.
+- Smooth hover effects.
+- Carefully designed empty states.
+- Consistent loading indicators.
+
+Use #FC5050 for primary buttons, active states and important highlights.
+
+Use #111D30 for navigation, headings, dashboard elements and important text.
+
+Avoid excessive gradients, unnecessary glassmorphism and overly decorative effects.
+
+### Animation requirements
+
+Use Framer Motion for:
+- Page transitions.
+- Dropdown animations.
+- Modal transitions.
+- Sidebar interactions.
+- Card entrance animations.
+- Button feedback.
+- Small interface transitions.
+
+Use GSAP selectively for:
+- Homepage hero animations.
+- Subtle background movement.
+- Scroll-triggered animations.
+- Special promotional sections.
+
+Do not use both animation libraries for the same element.
+
+All animations must be smooth, purposeful and performance-conscious.
+
+Respect reduced-motion accessibility preferences.
+
+### Icon requirements
+
+Use pure SVG icons only.
+
+Create a reusable SVG icon component system with consistent:
+- Stroke width.
+- Dimensions.
+- ViewBox.
+- Stroke colour.
+- Active and inactive states.
+
+Do not use emojis, Unicode symbols as icons, icon fonts, or external icon libraries.
+
+---
+
+## 4. PLATFORM SERVICES
+
+The platform must be designed to accommodate the following service categories.
+
+### Main services
+
+1. Airtime.
+2. Data subscriptions.
+3. Gift cards.
+4. Utility bill payments.
+5. eSIM services.
+6. Number verification and number rentals.
+7. Airtime-to-Naira conversion.
+
+### Additional services
+
+8. Virtual debit cards.
+9. Gaming and betting wallet funding.
+10. Educational pins and vouchers.
+
+Each service must eventually have its own dedicated interface, transaction workflow, validation rules and API integration.
+
+For now, create the service navigation, service cards, basic interface structures and placeholder service pages.
+
+Do not build imaginary provider integrations.
+
+---
+
+## 5. CUSTOMER/USER ENVIRONMENT
+
+Create a complete customer dashboard with the following structure.
+
+### A. Customer authentication
+
+- Registration.
+- Login.
+- Forgot password.
+- Password reset.
+- Email verification interface.
+- Logout.
+- Protected customer routes.
+
+Registration should support:
+- Full name.
+- Email address.
+- Phone number.
+- Password.
+- Confirm password.
+
+Prepare the authentication architecture for Laravel Sanctum.
+
+### B. Customer dashboard
+
+The dashboard should contain:
+
+- Welcome message.
+- Customer name.
+- Wallet balance.
+- Fund wallet button.
+- Total transactions.
+- Successful transactions.
+- Pending transactions.
+- Recent transactions.
+- Quick service shortcuts.
+- Notifications.
+- Profile shortcut.
+
+### C. Service dashboard
+
+Display all available services in a modern card layout.
+
+Each service card should have:
+- Custom SVG icon.
+- Service name.
+- Short description.
+- Action button.
+- Appropriate status.
+
+### D. Wallet
+
+Create a wallet interface with:
+
+- Available balance.
+- Wallet funding history.
+- Debit and credit transactions.
+- Transaction references.
+- Transaction status.
+- Wallet transaction history.
+
+Do not implement real payment processing until payment gateway documentation is provided.
+
+### E. Transactions
+
+Create a transaction history page with:
+
+- Transaction reference.
+- Service category.
+- Amount.
+- Date.
+- Status.
+- Transaction details.
+- Search.
+- Date filters.
+- Status filters.
+- Pagination.
+
+### F. User profile and settings
+
+Include:
+- Personal information.
+- Update profile.
+- Change password.
+- Security settings.
+- Notification preferences.
+- Account information.
+
+---
+
+## 6. ADMINISTRATOR ENVIRONMENT
+
+The administrator dashboard must be completely separate from the customer dashboard.
+
+Create a professional admin interface with its own sidebar, navigation, header and dashboard layout.
+
+### A. Admin dashboard overview
+
+Display:
+
+- Total registered users.
+- Active users.
+- Total transactions.
+- Successful transactions.
+- Failed transactions.
+- Pending transactions.
+- Total transaction volume.
+- Wallet funding volume.
+- Revenue overview.
+
+Include:
+- Transaction charts.
+- Revenue charts.
+- Recent transactions.
+- Recent registrations.
+- Service performance overview.
+
+Use mock data for the initial interface.
+
+### B. User management
+
+Administrators should eventually be able to:
+
+- View registered customers.
+- Search customers.
+- Filter customers.
+- View customer profiles.
+- View customer transaction histories.
+- Activate or suspend accounts.
+- Review customer activity.
+
+### C. Transaction management
+
+Include:
+
+- All transactions.
+- Transaction details.
+- Transaction references.
+- Customer information.
+- Service category.
+- Transaction amount.
+- Transaction status.
+- Date filters.
+- Search and pagination.
+
+Prepare the interface for future transaction reconciliation and API provider responses.
+
+### D. Service management
+
+Allow administrators to manage the platform's service categories.
+
+Prepare functionality for:
+
+- Adding services.
+- Editing services.
+- Enabling or disabling services.
+- Updating service descriptions.
+- Managing service visibility.
+- Configuring service availability.
+
+### E. Wallet management
+
+Prepare interfaces for:
+
+- Customer wallet records.
+- Wallet funding history.
+- Wallet debit and credit records.
+- Wallet transaction reconciliation.
+
+Any manual wallet adjustment must eventually require authorization, an audit record and a reason.
+
+### F. Administrative settings
+
+Include:
+
+- Administrator profile.
+- General platform settings.
+- Service configuration.
+- Notification settings.
+- System logs.
+- Audit logs.
+- API configuration placeholders.
+
+Never expose secret API keys in frontend code.
+
+---
+
+## 7. API-FIRST ARCHITECTURE
+
+This is one of the most important requirements.
+
+The application must be designed around a centralized API integration architecture.
+
+On the React side, create:
+
+src/
+  api/
+    client.ts
+    auth.api.ts
+    user.api.ts
+    wallet.api.ts
+    transaction.api.ts
+    services.api.ts
+    admin.api.ts
+
+  services/
+    auth.service.ts
+    wallet.service.ts
+    transaction.service.ts
+
+  hooks/
+    useAuth.ts
+    useWallet.ts
+    useTransactions.ts
+
+  types/
+    auth.types.ts
+    user.types.ts
+    wallet.types.ts
+    transaction.types.ts
+    service.types.ts
+
+Create a centralized Axios client with:
+
+- Base API URL.
+- Authentication handling.
+- Request interceptors.
+- Response interceptors.
+- Error handling.
+- Consistent response handling.
+- Environment-based configuration.
+
+Use an environment variable for the API base URL.
+
+Example:
+
+VITE_API_BASE_URL=http://localhost:8000/api/v1
+
+Do not scatter API URLs across React components.
+
+All API communication must happen through the centralized API layer.
+
+For the initial stage, implement mock repositories or mock API responses behind the same service interfaces. This will allow me to replace mock implementations with real API integrations later without rewriting the user interface.
+
+---
+
+## 8. BACKEND ARCHITECTURE
+
+Use Laravel with a clean and modular structure.
+
+Organize the backend around:
+
+- Controllers.
+- Models.
+- Requests.
+- Resources.
+- Services.
+- Middleware.
+- Policies.
+- Enums.
+- Routes.
+
+Prepare database migrations for the foundational entities:
+
+1. Users.
+2. Roles or user role assignments.
+3. Wallets.
+4. Transactions.
+5. Service categories.
+6. Notifications.
+7. Audit logs.
+
+Use PostgreSQL.
+
+Use appropriate:
+- Foreign keys.
+- Indexes.
+- Unique constraints.
+- Decimal types for monetary values.
+- Database transactions for financial operations.
+
+Do not store money using floating-point data types.
+
+Keep wallet balances and transaction records consistent.
+
+Use authorization policies and middleware to protect administrator endpoints.
+
+---
+
+## 9. RESPONSIVE DESIGN
+
+The application must work properly on:
+
+- Desktop computers.
+- Laptops.
+- Tablets.
+- Mobile phones.
+
+The customer dashboard must be particularly well optimized for mobile users.
+
+The admin dashboard should have:
+- Collapsible sidebar.
+- Responsive navigation.
+- Properly formatted tables.
+- Mobile-friendly transaction views.
+
+---
+
+## 10. DEVELOPMENT RULES
+
+Follow these rules strictly.
+
+1. Work in small development stages.
+2. Do not generate the entire application at once.
+3. Do not delete existing files without asking.
+4. Before creating or changing files, inspect the existing project structure.
+5. Explain the purpose of important commands before running them.
+6. Use professional naming conventions.
+7. Do not duplicate components unnecessarily.
+8. Avoid placing business logic inside React components.
+9. Avoid unnecessary dependencies.
+10. Use TypeScript types instead of excessive use of `any`.
+11. Validate all forms.
+12. Handle loading, error and empty states.
+13. Never hardcode API secrets.
+14. Never claim a simulated transaction is a real transaction.
+15. Ensure the application runs successfully before moving to the next stage.
+
+Write clean, production-oriented code rather than temporary demonstration code.
+
+---
+
+## 11. INITIAL DEVELOPMENT OBJECTIVE
+
+For now, DO NOT attempt to build all the services.
+
+I want to establish the foundational architecture first.
+
+The first development stage should cover:
+
+1. Inspect the development environment.
+2. Establish the frontend and backend project structure.
+3. Install and configure the required dependencies.
+4. Configure Tailwind CSS.
+5. Configure Mulish typography.
+6. Establish the Budipoint design system.
+7. Configure PostgreSQL connectivity.
+8. Establish Laravel API routing.
+9. Create the initial database migrations.
+10. Configure authentication architecture.
+11. Create the main customer layout.
+12. Create the main administrator layout.
+13. Implement protected customer and administrator routes.
+14. Create the initial responsive customer dashboard.
+15. Create the initial responsive administrator dashboard.
+16. Establish the centralized API client and mock data architecture.
+
+### Important final instruction
+
+Before writing code, present your proposed project directory structure and explain how the frontend, backend, database and API layers will communicate.
+
+Then propose the commands required to initialize the project.
+
+Wait for my approval before making major structural changes.
+
+After initialization, implement the project in small, testable stages.
+
+At the end of each stage:
+- List the files created or modified.
+- Explain what was implemented.
+- Provide the commands to run the application.
+- Identify any outstanding issues.
+- Confirm that the current stage works before proceeding.
+
+Start with Stage 1 only.
+
+Do not build beyond the approved stage.
